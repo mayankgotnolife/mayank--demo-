@@ -14,15 +14,13 @@ public class ScientificCalculator extends JFrame implements ActionListener {
         setSize(400, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-        
-        // Display
+      
         display = new JTextField("0");
         display.setFont(new Font("Arial", Font.BOLD, 20));
         display.setHorizontalAlignment(JTextField.RIGHT);
         display.setEditable(false);
         add(display, BorderLayout.NORTH);
         
-        // Buttons panel
         JPanel panel = new JPanel(new GridLayout(6, 5, 2, 2));
         String[] buttons = {
             "sin", "cos", "tan", "log", "ln",
@@ -34,14 +32,14 @@ public class ScientificCalculator extends JFrame implements ActionListener {
             "0", "0", "0", "=", "."
         };
         
-        for(int i = 0; i < 35; i++) {
+           for(int i = 0; i < 35; i++) {
             if(i == 30 || i == 31) continue; // Skip duplicate 0
             JButton btn = new JButton(buttons[i]);
             btn.setFont(new Font("Arial", Font.BOLD, 12));
             btn.addActionListener(this);
             
-            // Color coding
-            if("+-×÷=".contains(buttons[i])) btn.setBackground(Color.ORANGE);
+            
+           if("+-×÷=".contains(buttons[i])) btn.setBackground(Color.ORANGE);
             else if("C±%".contains(buttons[i])) btn.setBackground(Color.LIGHT_GRAY);
             else if(buttons[i].matches("\\d")) btn.setBackground(Color.WHITE);
             else btn.setBackground(Color.CYAN);
@@ -49,7 +47,6 @@ public class ScientificCalculator extends JFrame implements ActionListener {
             panel.add(btn);
         }
         
-        // Make 0 span 3 columns
         panel.remove(panel.getComponent(25));
         JButton zeroBtn = new JButton("0");
         zeroBtn.setFont(new Font("Arial", Font.BOLD, 12));
